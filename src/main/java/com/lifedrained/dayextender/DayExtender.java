@@ -27,11 +27,10 @@ public class DayExtender
     }
 
 
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerTick(TickEvent.ServerTickEvent event)
     {
-        if (event.phase == TickEvent.Phase.END){
+        if (event.phase == TickEvent.Phase.START){
             MinecraftServer server = event.getServer();
             server.getAllLevels().forEach((level) -> {
                 if (level.getGameTime() %  dayFactor != 0){
